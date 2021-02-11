@@ -116,10 +116,10 @@ public class MainApp extends DaggerApplication {
     }
 
     private void selectThemeMode() {
-        if(sp.getBoolean(R.string.key_use_darkmode, true)) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        switch (sp.getString(R.string.key_use_darkmode, "system")) {
+            case "yes": AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES); break;
+            case "no": AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); break;
+            default: AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM); break;
         }
     }
 

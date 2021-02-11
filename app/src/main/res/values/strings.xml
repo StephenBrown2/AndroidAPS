@@ -1390,4 +1390,7 @@
     <string name="color_selected">Selected</string>
     <string name="theme_switcher_summary">In order to take effect please restart the app.</string>
     <string name="use_dark_mode">Use dark mode</string>
+    <string name="dark_mode">Use Dark Theme</string>
+    <string name="light_mode">Use Light Theme</string>
+    <string name="follow_system_theme">Follow System Theme</string>
 </resources>

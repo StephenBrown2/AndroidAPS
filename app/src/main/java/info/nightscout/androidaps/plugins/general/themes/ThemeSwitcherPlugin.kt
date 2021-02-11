@@ -40,10 +40,10 @@ class ThemeSwitcherPlugin @Inject constructor(
     }
 
     private fun switchTheme() {
-        if (sp.getBoolean(R.string.key_use_darkmode, true)) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        when(sp.getString(R.string.key_use_darkmode, "system")) {
+            "yes" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            "no" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            else -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
         }
         rxBusWrapper.send(EventThemeSwitch())
     }
